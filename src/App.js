@@ -8,3 +8,8 @@ export default function App() {
     </div>
   );
 }
+
+// https://swapi.dev/api/people/?search=r2
+
+// "https://swapi.dev/api/people/2/"
+// https://starwars-visualguide.com/assets/img/characters/2.jpg"
