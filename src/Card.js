@@ -1,26 +1,44 @@
-import react from "react";
+import React from "react";
 
 export default function Card(props) {
+  const [characterData, setCharacterData] = React.useState(null);
+
+  const srcImg =
+    "https://starwars-visualguide.com/assets/img/characters/" +
+    props.characterId +
+    ".jpg";
+
+  async function fetchDataJson(url) {
+    const res = await fetch(url);
+    res
+      .json()
+      .then((res) => setCharacterData(res))
+      .catch();
+  }
+
+  React.useEffect(() => {
+    fetchDataJson("https://swapi.dev/api/people/" + props.characterId + "/");
+  }, []);
+
+  if (characterData === null) {
+    return <h2>Loading...</h2>;
+  }
+
   return (
     <div
       style={{
-        witdth: "20%",
+        width: "14%",
         border: "1px solid #ccc",
-        float: "left"
+        float: "left",
+        padding: "3px",
+        margin: "3px"
       }}
     >
-      <div>Имя: {props.name}</div>
-      <div>Пол: {props.gender}</div>
+      <div>Имя: {characterData.name}</div>
+      <div>Пол: {characterData.gender}</div>
       <div>Id: {props.characterId}</div>
-      <img
-        src={
-          "https://starwars-visualguide.com/assets/img/characters/" +
-          props.characterId +
-          ".jpg"
-        }
-        alt="Image.jpg"
-        width="200"
-      />
+      <div>Планета: {props.characterId}</div>
+      <img src={srcImg} alt="Image.jpg" width="95%" />
     </div>
   );
 }
