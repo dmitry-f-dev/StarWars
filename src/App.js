@@ -1,14 +1,17 @@
 import "./styles.css";
 import React from "react";
 import ContainerCard from "./ContainerCards";
+import AllCards from "./AllCards";
 
 export default function App() {
   return (
     <div className="App">
-      <ContainerCard />
+      <AllCards />
     </div>
   );
 }
+
+//<ContainerCard />
 
 // https://swapi.dev/api/people/?search=r2
 
