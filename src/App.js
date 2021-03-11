@@ -2,15 +2,17 @@ import "./styles.css";
 import React from "react";
 import ContainerCard from "./ContainerCards";
 import AllCards from "./AllCards";
+import Serch from "./Search";
 
 export default function App() {
   return (
     <div className="App">
-      <AllCards />
+      <Serch searchRequest="Luk" />
     </div>
   );
 }
 
+//<AllCards />
 //<ContainerCard />
 
 // https://swapi.dev/api/people/?search=r2

@@ -11,6 +11,9 @@ export default function AllCards() {
       ".jpg"
     );
   }
+
+  // "homeworld": "http://swapi.dev/api/planets/1/",  "name": "Tatooine",
+
   async function fetchDataJson(url) {
     console.log(url);
     const res = await fetch(url);
